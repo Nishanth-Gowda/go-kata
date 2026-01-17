@@ -25,9 +25,9 @@ type Retryer struct {
 }
 
 type Timer interface {
-	C() <-chan time.Time
-	Reset(d time.Duration)
-	Stop()
+	C() <-chan time.Time   // Returns the channel on which the timer will send the next tick.
+	Reset(d time.Duration) // Resets the timer to fire after duration d.
+	Stop()                 // Stops the timer and prevents it from firing.
 }
 
 // realTimer wraps the standard time.Timer.
